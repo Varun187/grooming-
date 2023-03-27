@@ -1,14 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /* find the maximum occurring character in a given String and try to use exception handling for edge cases? */
 
 public class MaximumCharacter {
 
-    static List<Character> getMaxCharacter(String str) {
-        
-
+    static List<Character> getMaxCharacter(String str) throws InValidInputException{
+        if(str == null || str.isBlank())
+            throw new InValidInputException("Excption: Input string cannnot be null or empty");
         int length = str.length();
         int frequency[] = new int[256];
         
@@ -34,16 +33,13 @@ public class MaximumCharacter {
     }
 
     public static void main(String[] args) {
-        String str = "aabb";
+        String str = "aabcbb";
         try{
-            if(str.isBlank())
-                System.out.println("The string is empty");
-            else{
-                List<Character> result = getMaxCharacter(str);
-                for(char c : result)
-                    System.out.println("Maximum occurring character is "+ c);
-            }
-        }catch (NullPointerException e) {
+            List<Character> result = getMaxCharacter(str);
+            for(char c : result)
+                System.out.println("Maximum occurring character is "+ c);
+            
+        }catch (InValidInputException e) {
             System.out.println(e.getMessage());
         }
     }
