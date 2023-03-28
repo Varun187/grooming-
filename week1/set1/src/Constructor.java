@@ -8,6 +8,21 @@ class Parameterized {
     }
 }
 
+class CopyConstructor{
+    int id;
+    String studentName;
+
+    CopyConstructor(String name, int id) {
+        this.id = id;
+        this.studentName = name;
+    }
+
+    CopyConstructor(CopyConstructor constructor){
+        this(constructor.studentName, constructor.id);
+        System.out.println("copy contructor called");
+    }
+}
+
 class NoArgument {
     int id;
     String studentName;
@@ -42,6 +57,11 @@ public class Constructor {
         // This would invoke the parameterized constructor.
         Parameterized student = new Parameterized("Sakthi", 1);
         System.out.println("StudentName :" + student.studentName + " and StudentId :" + student.id);
+
+        CopyConstructor copyConstructor = new CopyConstructor("Sakthi", 1);
+        CopyConstructor copyConstructor2 = new CopyConstructor(copyConstructor);
+        System.out.println(copyConstructor2.studentName);
+        
     }
 }
 
