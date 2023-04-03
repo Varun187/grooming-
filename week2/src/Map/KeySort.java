@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import List.LinkedList.Vegetable;
+
 //Program to sort a map based on keys
 public class KeySort {
     public static void main(String[] args) {
@@ -20,8 +22,30 @@ public class KeySort {
         Map<String, Integer> sortedMap = sortByKey(studentMap);
         printMap(sortedMap);
 
+        Map<Vegetable, Integer> map = new HashMap<>();
+        map.put(new Vegetable("Carrot", 40), 1);
+        map.put(new Vegetable("Tomato", 25), 2);
+        map.put(new Vegetable("Potato", 20), 3);
+
+        Map<Vegetable, Integer> vegetableMap = sortByVegetablePrice(map);
+        printVegetableMap(vegetableMap);
+
         // sortByKeyLambda(studentMap);
 
+    }
+
+    private static Map<Vegetable, Integer> sortByVegetablePrice(Map<Vegetable, Integer> map) {
+        Map<Vegetable, Integer> sortedMap = new TreeMap<>();
+        sortedMap.putAll(map);
+
+        return sortedMap;
+    }
+
+    public static void printVegetableMap(Map<Vegetable, Integer> map) {
+        System.out.println("Sorted Vegetable map ");
+        for (Map.Entry<Vegetable, Integer> entry : map.entrySet()) {
+            System.out.println("Vegetable name: " + entry.getKey().getName() + " price per kg: " + entry.getKey().getPricePerKg());
+        }
     }
 
     public static Map<String, Integer> sortByKey(Map<String, Integer> map) {
