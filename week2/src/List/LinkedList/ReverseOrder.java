@@ -31,5 +31,20 @@ public class ReverseOrder {
             System.out.print(listIterator.previous() + " ");
         }
 
+        LinkedList<Vegetable> vegetables =  new LinkedList<>();
+        vegetables.add(new Vegetable("Carrot", 40));
+        vegetables.add(new Vegetable("Tomato", 25));
+        vegetables.add(new Vegetable("Potato", 20));
+        vegetables.add(new Vegetable("Cabbage", 30));
+
+        Iterator<Vegetable> vegetableIterator = vegetables.descendingIterator();
+
+        System.out.println();
+        System.out.print("Vegetable list iterated in reverse order: ");
+        while (vegetableIterator.hasNext()) {
+            System.out.print(vegetableIterator.next().getPricePerKg() + " ");
+        }
+        
+
     }
 }
