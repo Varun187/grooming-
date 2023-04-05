@@ -32,6 +32,16 @@ public class KeySort {
 
         // sortByKeyLambda(studentMap);
 
+        Map<Vegetable, Integer> reversedVegMap = sortByVegetablePriceInReverseOrder(map);
+        printVegetableMap(reversedVegMap);
+
+    }
+
+    private static Map<Vegetable, Integer> sortByVegetablePriceInReverseOrder(Map<Vegetable, Integer> map) {
+        Map<Vegetable, Integer> sortedMap = new TreeMap<>(Collections.reverseOrder());
+        sortedMap.putAll(map);
+
+        return sortedMap;
     }
 
     private static Map<Vegetable, Integer> sortByVegetablePrice(Map<Vegetable, Integer> map) {
