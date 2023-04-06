@@ -67,5 +67,8 @@ public class Vegetable implements Comparable<Vegetable>{
         return true;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Vegetable [name=" + name + ", pricePerKg=" + pricePerKg + "]";
+    }
 }
