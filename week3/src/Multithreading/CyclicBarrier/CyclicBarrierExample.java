@@ -37,6 +37,7 @@ class Tourist implements Runnable {
         try {
             Thread.sleep(delay);
             System.out.println(threadName + " - finished exploring waiting for others");
+            System.out.println("No of people yet to arrive " + (barrier.getParties() - barrier.getNumberWaiting() - 1));
             this.barrier.await();
         } catch (InterruptedException e) {
             e.printStackTrace();
