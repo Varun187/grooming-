@@ -9,9 +9,11 @@ public class MaxValue {
     public static void main(String[] args) {
         List<Integer> myList = Arrays.asList(1, 4, 7, 9, 52, 45, 32, 4, 7, 9, 23, 72, 46, 52);
 
-        myList.stream()
+        Integer max = myList.stream()
                 .max(Integer::compare)
-                .ifPresent(System.out::println);
+                .orElseThrow(() -> new InvalidInputException("invalid input"));
+        System.out.println(max);
+                
 
         myList.stream()
                 .reduce((x, y) -> x > y ? x : y)

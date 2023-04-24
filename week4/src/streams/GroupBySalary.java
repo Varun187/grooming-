@@ -1,6 +1,7 @@
 package streams;
 
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 //Given a list of Employee objects, group the list based on employee salary? Assume Employee class having id, name, salary fields.
@@ -13,9 +14,25 @@ public class GroupBySalary {
 
         List<Employee> empList = List.of(emp1, emp2, emp3, emp4);
 
+        // System.out.println(
+        // empList.stream()
+        // .collect(Collectors.groupingBy(Employee::getSalary,
+        // Collectors.mapping(Employee::getName, Collectors.toList()))));
         System.out.println(
                 empList.stream()
-                        .collect(Collectors.groupingBy(Employee::getSalary,
-                                Collectors.mapping(Employee::getName, Collectors.toList()))));
+                        .collect(Collectors.groupingBy(new GetSalary(),
+                                Collectors.mapping(new GetName(), Collectors.toList()))));
+    }
+}
+
+class GetSalary implements Function<Employee, Double> {
+    public Double apply(Employee e) {
+        return e.getSalary();
+    }
+}
+
+class GetName implements Function<Employee, String> {
+    public String apply(Employee e) {
+        return e.getName();
     }
 }

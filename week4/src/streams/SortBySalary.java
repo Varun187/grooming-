@@ -14,9 +14,14 @@ public class SortBySalary {
 
         List<Employee> empList = List.of(emp1, emp2, emp3, emp4);
 
+        // empList.stream()
+        //         .sorted(Comparator.comparing(Employee::getSalary))
+        //         .collect(Collectors.toList())
+        //         .forEach(System.out::println);
+        
         empList.stream()
-                .sorted(Comparator.comparing(Employee::getSalary))
+                .sorted(Comparator.comparing(new GetSalary()))
                 .collect(Collectors.toList())
-                .forEach(System.out::println);
+                .forEach(new PrintConsumer<>());
     }
 }
