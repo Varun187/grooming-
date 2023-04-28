@@ -1,0 +1,19 @@
+we have a complex process to construct the object involving multiple steps 
+then we can use builder pattern
+
+we remove logic related to the object construction from client code 
+and abstract it in a separate class
+
+to create a immutable class by implementeing builder as a inner static class
+
+eg: 1. stringbuilder class in java
+but it has loop hole . by GOF builder should havepotential to build different
+reprensentation of product interface using same steps. 
+but stringbuider couldn't
+
+2.builder class in java.util.Calendar.builder
+
+pitfall:
+use of method chaining may look complex
+possibilty of partially initialized object. in such a case build method 
+should provide suitable defaults or throw exception
