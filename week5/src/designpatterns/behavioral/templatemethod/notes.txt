@@ -1,0 +1,40 @@
+This pattern allows to define the skeleton of the algorithm in base class.
+steps of the algorithm are defined as abstract methods in base class
+
+subclasses of our abstract class will provide implementation of steps. 
+This way we can have different implementation of the same algorithm
+
+Client will create object of any type of concrete subclasses to use algorithm
+
+Factory method design pattern is often implemented as a part of template
+method pattern
+
+one drawback of this design better is that the actual algorithm 
+implementation is now spread across multiple classes.
+So if you want to understand how this algorithm works but is defined in 
+template method, you have to look at multiple classes and read code 
+there to understand how this algorithm is implemented.
+
+a balance must be kept in how much granular our steps are.
+So if we have too many methods and steps in our algorithm,  
+this ends up creating methods that are doing some very primitive operations.
+So that is not what we desire here.
+We want to provide some meaningful steps.
+However, if we define very few steps, that means the subclasses are going to end up implementing large
+portions of algorithm at a time.
+And that means you may lose control of how your algorithm is implemented.
+
+if needed the template method can be made final to prevent subclasses from 
+changing base algorithm
+
+factory method pattern often uses template
+method and the actual factory method is typically called as one of the steps that is taken in
+that template method.
+
+eg: java.util.AbstractSet and java.util.AbstractMap classes uses many 
+non abstract methods that are examples of template method
+revomeAll() method
+
+pitfalls:
+unit testing become more difficult as individual steps may require  
+some specific state values to be present
