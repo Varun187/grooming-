@@ -1,0 +1,36 @@
+state pattern allows our object to behave differently based on its current 
+internal state
+
+if we have object whose behavior is completly tied to its internal state
+which can be expresses as an object we can use state pattern
+
+this pattern allows state specific behavior in separate classes
+
+operations defined in class delegates to current state 
+object's implementation of that behavior
+
+state transitions can be triggered by states themselves in which case 
+each state knows atleast one other state's existence
+
+Benefit is new states can be added without altering the main class
+
+we have decide how our state trantion is going to happen. 
+state can themselves transition to the next state based on input received 
+or context itself can initiate transition
+
+client interacts with main or context class and is unaware of the existence 
+of state which is power of this pattern
+
+in some case client can themselves configure the context with initial state
+
+eg:javax.faces.lifecycle.Lifecycle#execute() controlled by FacesServlet, 
+the behavior is dependent on current phase of lifecycle.
+
+
+pitfall: lot more classes are created and unit test need for those
+if more states are there it become complex to implement state transition
+if states are responsible for triggering transitions then we have a lot more
+coupling between states. but it it is not the case if context makes the state transition
+
+we may not realize all stateds during first time designing
+
