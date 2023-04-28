@@ -1,0 +1,23 @@
+when we want to enhance the behavior of our exising object dynamically as and when 
+required the we can use decorator design pattern
+
+Decorator wraps an object within itself and provides same interface as 
+the wrapped object.so the client of original object doesn't need to change.
+
+client of concrete class is unaware of existence of decorator
+
+decorator provides alternative to subclassing for extending functionality of 
+existing classes.
+
+beware of equals and hashcode. and whether decorator should be equal or not equal
+
+decorator supports recursive composition.
+
+avoid large state in concrete classes
+
+eg: I/O package in java . specific example could be bufferedoutputstream
+
+pitfalls: results in large no of classes added to the system
+
+don't always think decorators(since use composition) is a replacement for
+inheritance
