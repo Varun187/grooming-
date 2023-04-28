@@ -1,0 +1,14 @@
+iterators allows way to access elements/chidren of an aggregate object in 
+sequence while hiding the actual iternal data structure
+
+iterators are stateful,iterator object remembers its position 
+while iterating
+
+eg: Iteratorclass in java, Scanner class
+
+pitfall:
+access to index during iteration is not readily available like 
+we have in a for loop
+
+making modification on collection while iterating make iterator instance
+invalid
