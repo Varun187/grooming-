@@ -1,0 +1,29 @@
+Provide an interface for creating families of related or dependent objects 
+without specifying their concrete classes
+
+when we have multiple set of objects in one set work together then u can 
+use abstact factory pattern to isolate the client code from concrete objects 
+and their factories
+
+factories can be implemented as singleton, we typically need only one 
+instance of it anyway
+
+adding new product type requires changes to base factory as well as 
+its implementation
+
+we provide client code with the concrete factory so that it can create objects
+
+abstract factory uses factory method pattern 
+
+if objects are expensive to create we can transparently switch the factory 
+implementation to use prototype design pattern to create objects
+
+eg:javax.xml.parsers.DocumentBuilderFactory
+javax.xml.transform.TransformerFactory
+javax.xml.xpath.XPathFactory
+
+pitfalls:
+more complex to implement
+adding new product type requires changes to base factory as well as 
+its implementation
+this pattern is specific to problem of product families
