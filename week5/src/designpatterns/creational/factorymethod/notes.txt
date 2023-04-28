@@ -1,0 +1,16 @@
+we want to move the object creation logic from our code to separate class
+.We don't need to know in advance the we may need to instantiate
+
+it is done by letting subclasses decide which object to instantiate by 
+overriding the factory method
+
+creator hierarchy reflects the product hierarchy
+
+eg: java.util.AbstractCollection has abstact method called iterator
+
+pitfalls
+more complex to implement since more classes are involved and need more 
+unit test
+we have start implement factory method from beginning as it is 
+difficult to refactor existing code into factory afterwards
+this pattern forces to subclass just to create appropriate instance 
