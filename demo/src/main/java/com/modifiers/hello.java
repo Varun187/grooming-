@@ -1,6 +1,6 @@
 package com.modifiers;
 
-public class hello {
+class hello {
     private int a;
     private String name;
 
