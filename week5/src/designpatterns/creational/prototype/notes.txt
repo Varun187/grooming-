@@ -1,0 +1,79 @@
+So whenever we are in a situation where we have an object and creating the 
+object is a costly operation and the cost may be the performance cost, 
+maybe some calculation is needed to create that object,
+or the cost may be related to using external resources which are not in 
+our control.
+
+So whenever we have such an object, then to create multiple instances, we use that single object or
+existing object as our prototype.
+
+And this pattern allows us to make copies of that existing instance, and it saves us from creating
+these instances from scratch.
+
+objects which have a majority of their state as immutable are good 
+candidates for prototype.
+
+1. we should always pay attention to whether you need deep copy or shallow copy
+in your method.
+Now, if your prototype has objects, as it's stated, or they're part of your 
+prototype state and they are immutable, then you can get away with Shallow 
+Copy because these objects are immutable.
+So Copy can keep pointing to those same objects.
+
+However, if you have mutable objects as part of your prototype state, 
+then you may need a deep copy
+
+2.make sure that when you're returning the copy from your clone method, you are resetting the
+mutable state of your object.
+
+
+3. always remember that when you're overriding, make sure that you are 
+making it public so that it
+
+
+design considerations 
+when working with prototype is really useful, if
+you have a large object, that means the object has multiple fields in 
+it as part of its state.
+And majority of that state remains unchanged between instances.
+
+And you can easily identify whether which part of your state is immutable 
+and which part is going to change for multiple instances.
+
+Now, the main another point that you should consider is how to get hold of 
+that initial instance so that you can make copies of that object from 
+anywhere in your code to do that.
+
+You can also implement a prototype registry.
+
+So this will be a class where you can register the instances of your 
+prototype and other code can access
+the central location to get your initial copy and then clone them to 
+create other instances.
+
+Now, this problem, this implementation solves the problem of getting hold 
+of that initial instance.
+
+eg:Object.clone()
+
+pitfalls
+If the state of your prototype is made up of large number of mutable objects 
+and then implementing prototype can be a complicated process because now 
+you have to provide deep copy of all those mutable objects
+
+
+So whenever you need a deep copy, you have to provide implementation 
+for that deep copy yourself.So whenever you need a deep copy, you have to 
+provide implementation for that deep copy yourself.
+
+
+Now, subclasses of your prototype can decide that they will not support the 
+cloning operation and in such a case, they will throw a clone not supported 
+exception.
+
+So the goal, which is using your product design better now has to handle 
+such subclasses where cloning is not possible and they have to call an 
+alternate way to get hold of your subclass instances.
+
+So the code, which is using your product design better now becomes 
+complicated
