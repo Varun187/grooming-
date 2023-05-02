@@ -1,0 +1,15 @@
+we use this pattern when we want abstraction and implementation to be 
+decoupled so that they can vary independently
+
+to solve cartesian product problem
+
+bridge pattern define separate hierrachies for abstraction & implementation
+and bridge these two together using composition
+
+this pattern is to let abstraction and implementation vary independently
+
+eg:java.sql.DriverManager, Collection.newSetFromMap() method
+
+pitfalls:
+complex to implement
+you need to have full design upfront to decide to use this pattern
